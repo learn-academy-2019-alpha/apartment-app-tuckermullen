@@ -1,6 +1,10 @@
 class ApartmentsController < ApplicationController
   def index
-    apartments = Apartment.all
+    if !current_user || params[:all]
+      apartments = Apartment.all
+    else
+      apartments = current_user.apartments
+    end
     render json: apartments
   end
 end
