@@ -34,7 +34,7 @@ class ApartmentsPage extends React.Component {
     const { current_user } = this.props
     return (
       <React.Fragment>
-      	<h1>Apartments</h1>
+      	<h3>Apartments</h3>
         <Apartments apartments={apartments} current_user={current_user} />
       </React.Fragment>
     );

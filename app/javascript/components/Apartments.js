@@ -10,12 +10,12 @@ class Apartments extends React.Component {
           {apartments.map((apartment)=>{
             return(
               <li key={apartment.id}>
-                {apartment.street_num}<br/>
-                {apartment.street_name}<br/>
-                {apartment.city}<br/>
-                {apartment.postal_code}<br/>
-                {apartment.state}<br/>
-                {apartment.country}<br/>
+                Street Number: {apartment.street_num}<br/>
+                Street Name: {apartment.street_name}<br/>
+                City: {apartment.city}<br/>
+                State: {apartment.state}<br/>
+                Postal Code: {apartment.postal_code}<br/>
+                Country: {apartment.country}<br/>
               </li>
             )
           })}
