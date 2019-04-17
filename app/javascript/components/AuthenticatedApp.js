@@ -11,7 +11,7 @@ import ApartmentsPage from './pages/ApartmentsPage'
 
 class AuthenticatedApp extends React.Component {
   render () {
-    const { current_user, user_apartments } = this.props
+    const { current_user, apartments } = this.props
     return (
       <React.Fragment>
         <h2><strong>Welcome {current_user.name}!</strong></h2>

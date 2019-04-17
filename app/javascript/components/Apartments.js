@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 
+import CreateApartment from './pages/CreateApartment'
+
 class Apartments extends React.Component {
   render () {
     const { apartments, current_user } = this.props
@@ -19,6 +21,11 @@ class Apartments extends React.Component {
             )
           })}
         </ul>
+        <CreateApartment 
+          apartments={apartments} 
+          current_user={current_user} 
+          handleNewApartment={this.props.handleNewApartment}
+          />
       </React.Fragment>
     );
   }

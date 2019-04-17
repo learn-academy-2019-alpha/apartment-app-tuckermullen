@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 //data
-import { allApartments } from '../data/apartments'
+import { allApartments, createApartment } from '../data/apartments'
 
 //components
 import Apartments from '../Apartments'
@@ -29,14 +29,27 @@ class ApartmentsPage extends React.Component {
     })
   }
 
+  handleNewApartment = (newApartmentInfo) => {
+  createApartment(newApartmentInfo)
+    .then(successApartment => {
+        console.log("SUCCESS! New Apartment: ", successApartment);
+        const { apartments } = this.state
+        apartments.push(successApartment)
+        this.setState({ apartments: apartments })
+    })
+  }
+
   render () {
     const { apartments } = this.state
     const { current_user } = this.props
-    const { user_apartments } = this.props
     return (
       <React.Fragment>
         <h3>Your Apartment Listings</h3>
-        <Apartments apartments={apartments} current_user={current_user} user_apartments={user_apartments} />
+        <Apartments 
+          apartments={apartments} 
+          current_user={current_user} 
+          handleNewApartment={this.handleNewApartment}
+          />
       </React.Fragment>
     );
   }
