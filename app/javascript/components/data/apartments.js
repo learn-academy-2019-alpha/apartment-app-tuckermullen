@@ -28,7 +28,18 @@ function allApartments(allapt){
   })
 }
 
+let deleteApartment = (id) => {
+    return fetch(`${BASE}/apartments/${id}`, 
+    {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+
 export { 
 	allApartments,
-	createApartment
+	createApartment,
+	deleteApartment
 	}

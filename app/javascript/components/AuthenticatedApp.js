@@ -15,6 +15,7 @@ class AuthenticatedApp extends React.Component {
     return (
       <React.Fragment>
         <h2><strong>Welcome {current_user.name}!</strong></h2>
+        <a href="/">Home</a> | <a rel="nofollow" data-method="delete" href="/users/sign_out">Log Out</a>
         <Router>
           <Switch>
             <Route to="/apartments" render={() => (

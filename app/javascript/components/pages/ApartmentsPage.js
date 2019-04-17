@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 //data
-import { allApartments, createApartment } from '../data/apartments'
+import { allApartments, createApartment, deleteApartment } from '../data/apartments'
 
 //components
 import Apartments from '../Apartments'
@@ -16,6 +16,15 @@ class ApartmentsPage extends React.Component {
 		}
     this.getApartments()
 	}
+
+  getAllApartments = () => {
+  getApartments()
+    .then(APIapartments => {
+      this.setState({
+        apartments: APIapartments
+      })
+    })
+  }
 
   getApartments = ()=> {
     allApartments(this.props.all_apartments)
@@ -39,6 +48,11 @@ class ApartmentsPage extends React.Component {
     })
   }
 
+  handleDelete = (id) => {
+  deleteApartment(id)
+  .then(this.getApartments)
+  }
+
   render () {
     const { apartments } = this.state
     const { current_user } = this.props
@@ -49,6 +63,7 @@ class ApartmentsPage extends React.Component {
           apartments={apartments} 
           current_user={current_user} 
           handleNewApartment={this.handleNewApartment}
+          handleDelete={this.handleDelete}
           />
       </React.Fragment>
     );

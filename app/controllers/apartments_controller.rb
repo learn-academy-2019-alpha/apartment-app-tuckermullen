@@ -17,6 +17,17 @@ class ApartmentsController < ActionController::API
     end
   end
 
+  def destroy
+    apartment = Apartment.find(params[:id])
+
+    if apartment
+      apartment.destroy
+      render json: apartment, status: success
+    else
+      render json: apartment.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def apartment_params
